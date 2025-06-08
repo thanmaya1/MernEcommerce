@@ -74,7 +74,7 @@ export default function Orders() {
                       <div className="flex items-center gap-4 mt-2 text-sm text-gray-600 dark:text-gray-400">
                         <div className="flex items-center gap-1">
                           <Calendar className="h-4 w-4" />
-                          {order.createdAt ? new Date(order.createdAt).toLocaleDateString() : 'Unknown date'}
+                          {order.createdAt ? new Date(order.createdAt.toString()).toLocaleDateString() : 'Unknown date'}
                         </div>
                         <div className="flex items-center gap-1">
                           <CreditCard className="h-4 w-4" />
@@ -92,7 +92,11 @@ export default function Orders() {
                     <div>
                       <h4 className="font-semibold mb-2">Shipping Address</h4>
                       <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {order.shippingAddress}
+                        {order.shippingAddress 
+                          ? (typeof order.shippingAddress === 'string' 
+                              ? order.shippingAddress 
+                              : JSON.stringify(order.shippingAddress))
+                          : 'No address provided'}
                       </p>
                     </div>
                     <Separator />

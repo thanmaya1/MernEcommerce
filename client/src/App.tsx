@@ -11,6 +11,8 @@ import Home from "@/pages/home";
 import Admin from "@/pages/admin";
 import ProductDetail from "@/pages/product-detail";
 import Checkout from "@/pages/checkout";
+import Orders from "@/pages/orders";
+import Favorites from "@/pages/favorites";
 
 function Router() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -25,6 +27,8 @@ function Router() {
           <Route path="/admin" component={Admin} />
           <Route path="/products/:id" component={ProductDetail} />
           <Route path="/checkout" component={Checkout} />
+          <Route path="/orders" component={Orders} />
+          <Route path="/favorites" component={Favorites} />
         </>
       )}
       <Route component={NotFound} />
